@@ -50,6 +50,7 @@ in
 
   # Cursor theme referenced by hypr/variables.lua (cursorTheme / cursorSize).
   home.pointerCursor = {
+    enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Ice";
     size = 24;
