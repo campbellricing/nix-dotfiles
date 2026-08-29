@@ -21,6 +21,10 @@ hl.config({
 	},
 
 	cursor = {
+		-- nouveau falls back to legacy DRM (no atomic modesetting), where the
+		-- hardware cursor plane flickers on every move frame. Render in software.
+		no_hardware_cursors = 1,
+
 		hotspot_padding = 1,
 		inactive_timeout = 0.4,
 	},
