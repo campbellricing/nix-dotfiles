@@ -59,9 +59,10 @@
     };
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.videoDrivers = [ "nouveau" ];
-  services.xserver.enable = true;
+  # No X server / display manager: Hyprland (Wayland) is launched from a TTY.
+  # Enabling services.xserver pulls in LightDM by default, which fails to start
+  # here and leaves tty1 stuck on a blinking cursor. XWayland is provided by
+  # programs.hyprland.enable; the nouveau kernel module loads on its own.
   boot.kernelParams = [ "nouveau.config=NvClkMode=0xf" ];
 
   swapDevices = [{
