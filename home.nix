@@ -338,7 +338,8 @@ in
     prettier
     go unzip
 
-    # JS package manager
+    # JS package managers
     pnpm
+    yarn              # classic 1.x; `yarn set version berry` per-project for v2+
   ];
 }
