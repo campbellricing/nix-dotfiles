@@ -1,0 +1,14 @@
+[mgr]
+ratio = [2, 3, 4]
+linemode = "size"
+show_hidden = true
+show_symlink = true
+wrap = "yes"
+
+[preview]
+image_delay = 0
+
+[open]
+prepend_rules = [
+	{ url = "*.zip", use = "extract" },
+]

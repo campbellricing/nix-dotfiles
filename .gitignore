@@ -1,3 +1,16 @@
 # nix build artifacts
 result
 result-*
+
+# editor / tooling
+**/.claude/settings.local.json
+
+# runtime state written into out-of-store-symlinked config dirs
+hypr/scheme/current.lua
+fish/fish_variables
+fish/fish_history
+fish/completions/
+tmux/plugins/
+yazi/flavors/
+yazi/plugins/
+nvim/.luarc.json

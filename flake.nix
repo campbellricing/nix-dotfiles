@@ -25,6 +25,9 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          # Move pre-existing files aside (→ *.hmbak) instead of failing when a
+          # config path HM wants to manage already exists.
+          home-manager.backupFileExtension = "hmbak";
           home-manager.extraSpecialArgs = { inherit inputs; };
           home-manager.users.campbells = import ./home.nix;
         }

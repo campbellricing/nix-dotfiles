@@ -5,9 +5,8 @@
 -- in ~/.config/hypr/hyprland/ which are out-of-store symlinks to this repo, so
 -- editing them + `hyprctl reload` takes effect without a rebuild.
 --
--- Minimal subset for now: general / input / misc / animations / decoration /
--- group / gestures / keybinds. No env, execs (autostart) or window rules yet —
--- add `require("hyprland.env")` etc. here once those files are ported.
+-- Full port: env / general / input / misc / animations / decoration / group /
+-- execs (autostart) / rules (window rules) / gestures / keybinds.
 
 local home = os.getenv("HOME")
 local hypr = home .. "/.config/hypr"
@@ -70,12 +69,15 @@ hl.monitor({
 })
 
 -- Config modules
+require("hyprland.env")
 require("hyprland.general")
 require("hyprland.input")
 require("hyprland.misc")
 require("hyprland.animations")
 require("hyprland.decoration")
 require("hyprland.group")
+require("hyprland.execs")
+require("hyprland.rules")
 require("hyprland.gestures")
 require("hyprland.keybinds")
 

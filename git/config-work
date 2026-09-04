@@ -1,0 +1,6 @@
+# Loaded only for repos under ~/Workspaces/finepro/ (see includeIf in ./config).
+# PLACEHOLDER email for the public repo — set your real work identity locally
+# (git config --file ~/.config/git/config-work user.email you@work.tld).
+[user]
+	email = you@work.example
+	name = Your Name

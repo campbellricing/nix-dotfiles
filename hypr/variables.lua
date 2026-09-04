@@ -52,7 +52,7 @@ return {
 	volumeMax = 100,
 	cursorTheme = "Bibata-Modern-Ice",
 	cursorSize = 24,
-	sleepGestureCmd = "systemctl suspend-then-hibernate",
+	sleepGestureCmd = "systemctl suspend",
 
 	------------------
 	---- KEYBINDS ----
@@ -136,7 +136,7 @@ return {
 	-- kbEditor = "SUPER + C", -- open code editor
 	kbFileExplorer = "ALT + SHIFT + E", -- open file explorer
 	kbYazi = "ALT + E", -- open yazi (terminal file manager)
-	kbNotes = "SUPER + SHIFT + Z", -- open zennotes
+	kbNotes = "SUPER + SHIFT + Z", -- open tuxedo (todo.txt TUI) in ~/Workspaces/notes
 
 	-- Utilities
 	kbScreenshotFreeze = "ALT + SHIFT + S", -- take a screenshot (frozen screen)
@@ -175,7 +175,6 @@ return {
 	kbShowSidebar = "SUPER + SHIFT + N", -- toggle sidebar
 	kbClearNotifs = "CTRL + ALT + C", -- clear all notifications
 	kbShowPanels = "SUPER + SHIFT + D", -- toggle dashboard panels
-	-- kbLock = "SUPER + CTRL + L", -- lock the screen
 	kbRestoreLock = "SUPER + ALT + L", -- restart shell daemon and lock screen
 	kbSleep = "CTRL + ALT + SUPER + L", -- suspend (sleep) the system
 }

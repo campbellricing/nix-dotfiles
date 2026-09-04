@@ -1,0 +1,15 @@
+# ~/.config/git/config  ->  ~/nix-dotfiles/git/config  (out-of-store symlink, edit in place)
+# Personal identity is the default; repos under ~/Workspaces/finepro/ pull in
+# config-work (relative path = same dir as this file, i.e. ~/.config/git/).
+#
+# The email here is a PLACEHOLDER for the public repo. Set your real one locally:
+#   git config --file ~/.config/git/config user.email you@real.tld
+# and (optional) stop git tracking further local edits:
+#   git -C ~/nix-dotfiles update-index --skip-worktree git/config git/config-work
+
+[user]
+	email = you@example.com
+	name = Your Name
+
+[includeIf "gitdir:~/Workspaces/finepro/"]
+	path = config-work

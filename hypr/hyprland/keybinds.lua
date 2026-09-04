@@ -13,7 +13,6 @@ hl.bind(vars.kbSession, hl.dsp.global("caelestia:session"))
 hl.bind(vars.kbShowSidebar, hl.dsp.global("caelestia:sidebar"))
 hl.bind(vars.kbClearNotifs, hl.dsp.global("caelestia:clearNotifs"), { locked = true })
 hl.bind(vars.kbShowPanels, hl.dsp.global("caelestia:dashboard"))
--- hl.bind(vars.kbLock, hl.dsp.global("caelestia:lock"))
 
 -- Restore lock
 hl.bind(vars.kbRestoreLock, function()
@@ -154,8 +153,10 @@ hl.bind(vars.kbBrowser, hl.dsp.exec_cmd(vars.browser))
 -- hl.bind(vars.kbEditor, hl.dsp.exec_cmd(vars.editor))
 hl.bind(vars.kbFileExplorer, hl.dsp.exec_cmd(vars.fileExplorer))
 hl.bind(vars.kbYazi, hl.dsp.exec_cmd("foot --app-id yazi -e yazi"))
--- zennotes is an AUR package, not available on NixOS. Re-enable once you package/replace it.
--- hl.bind(vars.kbNotes, hl.dsp.exec_cmd("zennotes"))
+hl.bind(
+	vars.kbNotes,
+	hl.dsp.exec_cmd("foot --app-id tuxedo -D /home/campbells/Workspaces/notes -e tuxedo")
+)
 -- hl.bind("CTRL + ALT + V", hl.dsp.exec_cmd(vars.audioSettings))
 
 -- Utilities

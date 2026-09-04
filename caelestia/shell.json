@@ -1,0 +1,233 @@
+{
+    "appearance": {
+        "transparency": {
+            "enabled": false
+        }
+    },
+    "background": {
+        "wallpaperEnabled": true
+    },
+    "bar": {
+        "activeWindow": {
+            "compact": true,
+            "inverted": true,
+            "showOnHover": false
+        },
+        "clock": {
+            "background": false,
+            "showDate": true,
+            "showIcon": false
+        },
+        "entries": [
+            {
+                "enabled": true,
+                "id": "logo"
+            },
+            {
+                "enabled": true,
+                "id": "workspaces"
+            },
+            {
+                "enabled": true,
+                "id": "spacer"
+            },
+            {
+                "enabled": false,
+                "id": "activeWindow"
+            },
+            {
+                "enabled": true,
+                "id": "clock"
+            },
+            {
+                "enabled": true,
+                "id": "spacer"
+            },
+            {
+                "enabled": true,
+                "id": "tray"
+            },
+            {
+                "enabled": true,
+                "id": "statusIcons"
+            },
+            {
+                "enabled": false,
+                "id": "power"
+            }
+        ],
+        "persistent": true,
+        "popouts": {
+            "activeWindow": false,
+            "statusIcons": true,
+            "tray": true
+        },
+        "scrollActions": {
+            "brightness": false,
+            "volume": false,
+            "workspaces": false
+        },
+        "showOnHover": false,
+        "statusIcons": [
+            {
+                "enabled": true,
+                "id": "audio"
+            },
+            {
+                "enabled": true,
+                "id": "network"
+            },
+            {
+                "enabled": true,
+                "id": "bluetooth"
+            }
+        ],
+        "tray": {
+            "background": false,
+            "compact": false,
+            "recolour": false
+        },
+        "workspaces": {
+            "activeIndicator": true,
+            "activeLabel": "󰫢 ",
+            "activeTrail": true,
+            "label": "󰫢 ",
+            "maxWindowIcons": 4,
+            "occupiedBg": false,
+            "occupiedLabel": "󰫢 ",
+            "perMonitorWorkspaces": true,
+            "showWindows": false,
+            "showWindowsOnSpecialWorkspaces": false,
+            "shown": 4
+        }
+    },
+    "dashboard": {
+        "enabled": true,
+        "resourceUpdateInterval": 2000,
+        "showOnHover": false,
+        "showWeather": true
+    },
+    "general": {
+        "apps": {
+            "playback": [
+                "/usr/bin/vlc",
+                "--started-from-file"
+            ]
+        },
+        "idle": {
+            "timeouts": [
+            ]
+        },
+        "logo": "caelestia"
+    },
+    "launcher": {
+        "hiddenApps": [
+            "xfce4-about",
+            "thunar-bulk-rename",
+            "fcitx5-configtool",
+            "org.fcitx.fcitx5-migrator",
+            "footclient",
+            "foot-server",
+            "lstopo",
+            "kbd-layout-viewer5",
+            "libreoffice-base",
+            "libreoffice-calc",
+            "libreoffice-draw",
+            "libreoffice-impress",
+            "libreoffice-math",
+            "libreoffice-writer",
+            "thunar-settings",
+            "org.pulseaudio.pavucontrol",
+            "org.gnome.Nautilus",
+            "winetricks"
+        ],
+        "maxShown": 8,
+        "maxWallpapers": 8,
+        "useFuzzy": {
+            "actions": true,
+            "apps": true
+        },
+        "vimKeybinds": true
+    },
+    "lock": {
+        "useWallpaper": true
+    },
+    "paths": {
+        "sessionGif": "/home/campbells/.config/images/gifs/session.gif",
+        "wallpaperDir": "/home/campbells/.config/images/wallpapers"
+    },
+    "services": {
+        "audioIncrement": 0.02,
+        "brightnessIncrement": 0.1,
+        "defaultPlayer": "Chromium",
+        "useFahrenheit": false,
+        "useTwelveHourClock": false,
+        "weatherLocation": "Ho Chi Minh City"
+    },
+    "session": {
+        "commands": {
+            "hibernate": [
+                "bash",
+                "-c",
+                "hyprctl dispatch dpms off; systemctl suspend-then-hibernate"
+            ],
+            "logout": [
+                "hyprctl",
+                "dispatch",
+                "hl.dsp.exit()"
+            ],
+            "reboot": [
+                "systemctl",
+                "reboot",
+                "--no-wall"
+            ],
+            "shutdown": [
+                "systemctl",
+                "poweroff",
+                "--no-wall"
+            ]
+        }
+    },
+    "sidebar": {
+        "enabled": true
+    },
+    "utilities": {
+        "cards": {
+            "keepAwake": false,
+            "quickToggles": false
+        },
+        "quickToggles": [
+            {
+                "enabled": true,
+                "id": "wifi"
+            },
+            {
+                "enabled": true,
+                "id": "bluetooth"
+            },
+            {
+                "enabled": true,
+                "id": "mic"
+            },
+            {
+                "enabled": true,
+                "id": "settings"
+            },
+            {
+                "enabled": true,
+                "id": "gameMode"
+            },
+            {
+                "enabled": false,
+                "id": "dnd"
+            },
+            {
+                "enabled": false,
+                "id": "vpn"
+            }
+        ],
+        "toasts": {
+            "kbLayoutChanged": false
+        }
+    }
+}
