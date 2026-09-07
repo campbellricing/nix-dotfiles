@@ -300,7 +300,14 @@ in
     libreoffice      # Writer / Calc / Impress etc.
 
     # chat
-    discord          # unfree; allowed via nixpkgs.config.allowUnfree in configuration.nix
+    # Discord client with bundled Vencord. caelestia themes it automatically: on
+    # every scheme change the shell runs `caelestia wallpaper` / `caelestia
+    # scheme set`, whose apply_colours() step compiles the "Midnight" Vencord
+    # theme (keyed to the current scheme colours) and writes it to
+    # ~/.config/vesktop/themes/caelestia.theme.css. The caelestia CLI already
+    # bundles dart-sass for that, so nothing else is needed here. Enable it once
+    # in Vesktop: Settings -> Vencord -> Themes -> tick "caelestia.theme.css".
+    vesktop
 
     # shell stack (fish/config.fish + starship.toml + fastfetch + catppuccin)
     fish
