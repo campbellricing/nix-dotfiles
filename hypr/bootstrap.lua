@@ -60,7 +60,8 @@ if type(overrides) == "table" then
 	end
 end
 
--- Default monitor
+-- Default monitor. Per-machine overrides (resolution, refresh rate, position)
+-- go in ~/.config/caelestia/hypr-user-local.lua, which loads last.
 hl.monitor({
 	output = "",
 	mode = "preferred",
