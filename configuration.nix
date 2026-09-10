@@ -106,6 +106,14 @@ in
   # Static /etc/hosts entries for internal services live in ./local.nix
   # (networking.hosts) so the real addresses stay out of the published repo.
 
+  # NixOS enables its firewall by default and drops all inbound connections.
+  # Open the port ranges dev servers bind to (Vite ~5173, Next/Node ~3000) so
+  # `pnpm dev --host` is reachable from phones/other machines on the LAN.
+  networking.firewall.allowedTCPPortRanges = [
+    { from = 5170; to = 5180; }
+    { from = 3000; to = 3010; }
+  ];
+
   # Set your time zone.
   time.timeZone = "Asia/Ho_Chi_Minh";
   i18n.defaultLocale = "en_US.UTF-8";
