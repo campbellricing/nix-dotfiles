@@ -101,6 +101,12 @@ hl.bind(vars.kbMoveWinRightArrow, hl.dsp.window.move({ direction = "right" }))
 hl.bind(vars.kbMoveWinUpArrow, hl.dsp.window.move({ direction = "up" }))
 hl.bind(vars.kbMoveWinDownArrow, hl.dsp.window.move({ direction = "down" }))
 
+-- Vim-style arrow emulation: forward a plain arrow keypress to the focused app
+hl.bind(vars.kbArrowLeft, hl.dsp.send_shortcut({ mods = "", key = "left" }), { repeating = true })
+hl.bind(vars.kbArrowDown, hl.dsp.send_shortcut({ mods = "", key = "down" }), { repeating = true })
+hl.bind(vars.kbArrowUp, hl.dsp.send_shortcut({ mods = "", key = "up" }), { repeating = true })
+hl.bind(vars.kbArrowRight, hl.dsp.send_shortcut({ mods = "", key = "right" }), { repeating = true })
+
 hl.bind(vars.kbShrinkWinX, fn.resize_active_window(-8, 0), { repeating = true })
 hl.bind(vars.kbGrowWinX, fn.resize_active_window(8, 0), { repeating = true })
 

@@ -99,6 +99,12 @@ return {
 	kbMoveWinUpArrow = "SUPER + SHIFT + up", -- move active window up
 	kbMoveWinRightArrow = "SUPER + SHIFT + right", -- move active window right
 
+	-- Vim-style arrow emulation (sent to the focused app, not Hyprland)
+	kbArrowLeft = "ALT + H", -- send left arrow to the focused window
+	kbArrowDown = "ALT + J", -- send down arrow to the focused window
+	kbArrowUp = "ALT + K", -- send up arrow to the focused window
+	kbArrowRight = "ALT + L", -- send right arrow to the focused window
+
 	-- Window resize
 	kbShrinkWinX = "SUPER + Minus", -- shrink active window horizontally
 	kbGrowWinX = "SUPER + Equal", -- grow active window horizontally
