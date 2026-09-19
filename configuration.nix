@@ -238,6 +238,10 @@ in
   # 32-bit graphics libraries, needed by many Wine apps/games.
   hardware.graphics.enable32Bit = true;
 
+  # Docker. campbells is added to the "docker" group below so `docker` works
+  # without `sudo` (takes effect after logging out/in, or `newgrp docker`).
+  virtualisation.docker.enable = true;
+
   # Secret storage (arch: gnome-keyring). Unlocked at login via the greetd PAM stack.
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
@@ -245,7 +249,7 @@ in
   # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.campbells = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "audio" "docker" ];
     shell = pkgs.fish;
   };
 
