@@ -258,6 +258,16 @@ in
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  # The internal Realtek RTL8821C radio (0bda:b00a) autosuspends after 2s idle
+  # by default, and its firmware doesn't reliably resume from that suspend —
+  # it comes back in a desynced HCI state (dmesg: "unexpected event for
+  # opcode 0x0c03", "Dropping L2CAP data: receive buffer overflow"), which
+  # shows earbuds as "connected" in the UI with no working audio, then a
+  # timeout disconnect. Disabling autosuspend for just this device fixes it.
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0bda", ATTR{idProduct}=="b00a", TEST=="power/control", ATTR{power/control}="on"
+  '';
+
   # 32-bit graphics libraries, needed by many Wine apps/games.
   hardware.graphics.enable32Bit = true;
 
