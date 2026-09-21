@@ -157,6 +157,29 @@ in
     # Pin a known-good progressive mode for the console + Wayland compositors.
     "video=HDMI-A-1:1920x1080@60"
   ];
+
+  # After a (especially long) suspend, nouveau on this card often comes back
+  # guessing a mode the monitor rejects instead of honouring the
+  # video=HDMI-A-1:1920x1080@60 pin above ("[drm] User-defined mode not
+  # supported: 1920x1080"), which kills Hyprland's renderer and lands on the
+  # crash screen. A VT switch away and back forces the kernel to redo DRM
+  # modesetting from scratch, same as manually hopping to another TTY and
+  # back — Hyprland already handles releasing/reacquiring DRM master on VT
+  # switch, so this doesn't otherwise touch the running session. Not a
+  # guaranteed fix (nouveau resume bugs are notoriously card-specific) but
+  # it's the standard low-risk workaround.
+  environment.etc."systemd/system-sleep/nouveau-modeset-kick" = {
+    mode = "0755";
+    text = ''
+      #!${pkgs.runtimeShell}
+      [ "$1" = post ] || exit 0
+      vt=$(${pkgs.kbd}/bin/fgconsole)
+      ${pkgs.kbd}/bin/chvt 63
+      sleep 1
+      ${pkgs.kbd}/bin/chvt "$vt"
+    '';
+  };
+
   # Keep the boot screen quiet: NixOS appends loglevel=4 (shows err+warning), so
   # harmless noise like dbus "Ignoring duplicate name" and "SGX disabled by BIOS"
   # ends up on the console. 3 = only crit/alert/emerg on screen (full log stays
