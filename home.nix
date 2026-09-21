@@ -299,6 +299,9 @@ in
     # office suite
     libreoffice      # Writer / Calc / Impress etc.
 
+    # media
+    vlc
+
     # chat
     # Discord client with bundled Vencord. caelestia themes it automatically: on
     # every scheme change the shell runs `caelestia wallpaper` / `caelestia
@@ -316,6 +319,7 @@ in
     eza bat fd ripgrep fzf zoxide direnv fnm
     btop              # `caelestia toggle sysmon` / rules.lua special:sysmon
     tuxedo            # keyboard-driven TUI/CLI for todo.txt (`tuxedo`)
+    lazydocker        # TUI for the docker service enabled in configuration.nix
     qt6Packages.fcitx5-configtool # launcher / hidden-apps entry
 
     # Icon theme: Papirus-Dark (set in gtk.iconTheme above) + breeze-icons for
@@ -336,6 +340,8 @@ in
     trash-cli         # `trash-empty 30` in execs.lua
     bluez             # bluetoothctl + mpris-proxy in execs.lua
     grim slurp swappy # screenshots + swappy editor
+    wf-recorder       # screen recording (SUPER+ALT+R); caelestia's own record
+                      # command needs gpu-screen-recorder/NVENC, unusable on nouveau
 
     # neovim / LazyVim runtime deps. LSP servers are kept here (Mason's
     # downloaded binaries often don't run against the Nix loader); formatters /
