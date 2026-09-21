@@ -169,9 +169,10 @@ hl.bind(
 -- hl.bind("SUPER + PRINT", hl.dsp.exec_cmd("caelestia screenshot"), { locked = true })
 hl.bind(vars.kbScreenshotFreeze, hl.dsp.global("caelestia:screenshotFreeze"))
 -- hl.bind("ALT + SHIFT + W", hl.dsp.global("caelestia:screenshot"))
--- hl.bind("SUPER + ALT + R", hl.dsp.exec_cmd("caelestia record -s"))
--- hl.bind("CTRL + ALT + R", hl.dsp.exec_cmd("caelestia record"))
--- hl.bind("SUPER + SHIFT + ALT + R", hl.dsp.exec_cmd("caelestia record -r"))
+-- caelestia's own record command hardcodes gpu-screen-recorder, which needs
+-- NVENC and doesn't work on this machine's nouveau driver, so bind wf-recorder
+-- directly instead (see hypr/hyprland/wf-record-toggle.sh).
+hl.bind(vars.kbRecordToggle, hl.dsp.exec_cmd("$HOME/.config/hypr/hyprland/wf-record-toggle.sh"))
 -- hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(vars.kbColourPicker, hl.dsp.exec_cmd("pidof hyprpicker || hyprpicker -a -l"))
 

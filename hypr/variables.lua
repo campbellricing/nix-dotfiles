@@ -149,6 +149,7 @@ return {
 	kbColourPicker = "SUPER + SHIFT + P", -- pick a colour from the screen (hyprpicker)
 	kbClipboard = "SUPER + SHIFT + V", -- open clipboard history picker
 	kbEmojiPicker = "SUPER + SHIFT + E", -- open emoji picker
+	kbRecordToggle = "SUPER + ALT + R", -- start/stop screen recording (wf-recorder)
 	kbTestNotif = "SUPER + ALT + F12", -- send a test notification
 
 	-- Brightness
