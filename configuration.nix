@@ -175,7 +175,7 @@ in
       [ "$1" = post ] || exit 0
       vt=$(${pkgs.kbd}/bin/fgconsole)
       ${pkgs.kbd}/bin/chvt 63
-      sleep 1
+      ${pkgs.coreutils}/bin/sleep 1
       ${pkgs.kbd}/bin/chvt "$vt"
     '';
   };
