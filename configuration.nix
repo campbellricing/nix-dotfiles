@@ -268,6 +268,28 @@ in
     ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0bda", ATTR{idProduct}=="b00a", TEST=="power/control", ATTR{power/control}="on"
   '';
 
+  # Pairing needs a BlueZ agent (org.bluez.Agent1) to answer the Simple
+  # Secure Pairing confirmation request most earbuds send. There isn't one
+  # registered here — no GUI manager, and the caelestia bar connects over
+  # DBus directly without implementing the Agent1 interface — so bluetoothd
+  # logs "No agent available for request type 2" / "device_confirm_passkey:
+  # Operation not permitted" and refuses the connection a few seconds in
+  # (looping "connecting" sound stops, but no "connected" chime, then the
+  # earbuds play their disconnect sound). bt-agent registers a persistent
+  # NoInputNoOutput agent that auto-accepts pairing ("Just Works"), which is
+  # what a headset with no screen/keyboard expects anyway.
+  systemd.services.bt-agent = {
+    description = "BlueZ pairing agent (auto-accept, NoInputNoOutput)";
+    after = [ "bluetooth.service" ];
+    requires = [ "bluetooth.service" ];
+    wantedBy = [ "bluetooth.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.bluez-tools}/bin/bt-agent -c NoInputNoOutput";
+      Restart = "on-failure";
+      RestartSec = 1;
+    };
+  };
+
   # 32-bit graphics libraries, needed by many Wine apps/games.
   hardware.graphics.enable32Bit = true;
 
