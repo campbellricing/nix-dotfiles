@@ -321,6 +321,7 @@ in
     tuxedo            # keyboard-driven TUI/CLI for todo.txt (`tuxedo`)
     lazydocker        # TUI for the docker service enabled in configuration.nix
     qt6Packages.fcitx5-configtool # launcher / hidden-apps entry
+    pkgs.postman
 
     # Icon theme: Papirus-Dark (set in gtk.iconTheme above) + breeze-icons for
     # the -symbolic names Papirus inherits but doesn't ship (Papirus-Dark
