@@ -52,7 +52,6 @@ return {
 	volumeMax = 100,
 	cursorTheme = "Bibata-Modern-Ice",
 	cursorSize = 24,
-	sleepGestureCmd = "systemctl suspend",
 
 	------------------
 	---- KEYBINDS ----
@@ -183,5 +182,4 @@ return {
 	kbClearNotifs = "CTRL + ALT + C", -- clear all notifications
 	kbShowPanels = "SUPER + SHIFT + D", -- toggle dashboard panels
 	kbRestoreLock = "SUPER + ALT + L", -- restart shell daemon and lock screen
-	kbSleep = "CTRL + ALT + SUPER + L", -- suspend (sleep) the system
 }

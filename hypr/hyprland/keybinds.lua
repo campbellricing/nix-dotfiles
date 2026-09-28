@@ -159,10 +159,7 @@ hl.bind(vars.kbBrowser, hl.dsp.exec_cmd(vars.browser))
 -- hl.bind(vars.kbEditor, hl.dsp.exec_cmd(vars.editor))
 hl.bind(vars.kbFileExplorer, hl.dsp.exec_cmd(vars.fileExplorer))
 hl.bind(vars.kbYazi, hl.dsp.exec_cmd("foot --app-id yazi -e yazi"))
-hl.bind(
-	vars.kbNotes,
-	hl.dsp.exec_cmd("foot --app-id tuxedo -D /home/campbells/Workspaces/notes -e tuxedo")
-)
+hl.bind(vars.kbNotes, hl.dsp.exec_cmd("foot --app-id tuxedo -D /home/campbells/Workspaces/notes -e tuxedo"))
 -- hl.bind("CTRL + ALT + V", hl.dsp.exec_cmd(vars.audioSettings))
 
 -- Utilities
@@ -198,9 +195,6 @@ hl.bind(
 	),
 	{ locked = true, repeating = true }
 )
-
--- Sleep
-hl.bind(vars.kbSleep, hl.dsp.exec_cmd(vars.sleepGestureCmd), { locked = true })
 
 -- Clipboard and emoji picker
 hl.bind(vars.kbClipboard, hl.dsp.exec_cmd("pkill fuzzel || caelestia clipboard"))
