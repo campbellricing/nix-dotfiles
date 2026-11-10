@@ -205,6 +205,32 @@ in
     };
   };
 
+  # Chromium ships as a single ~534MB ELF, and /nix/store lives on a DRAM-less
+  # SATA SSD (WD Green). The first launch after boot demand-pages that binary in
+  # over thousands of random reads and feels slow; every later launch is instant
+  # because the pages are already cached. Read it once, sequentially, after login
+  # so the cold cost is paid before the browser is ever opened. Sequential read
+  # is far cheaper than Chromium's own demand-paging on this drive.
+  #
+  # Starts no browser: this only populates the kernel page cache (~534MB, which
+  # the kernel is free to evict under memory pressure). Runs at idle I/O priority
+  # so it never competes with the rest of the session coming up.
+  systemd.user.services.chromium-preload = {
+    Unit = {
+      Description = "Pre-fault the Chromium binary into the page cache";
+      After = [ "graphical-session.target" ];
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+    Service = {
+      Type = "oneshot";
+      ExecStart =
+        "${pkgs.coreutils}/bin/dd if=${pkgs.chromium.browser}/libexec/chromium/chromium"
+        + " of=/dev/null bs=4M status=none";
+      Nice = 19;
+      IOSchedulingClass = "idle";
+    };
+  };
+
   # Cursor theme referenced by hypr/variables.lua (cursorTheme / cursorSize).
   home.pointerCursor = {
     enable = true;
