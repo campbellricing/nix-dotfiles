@@ -172,6 +172,10 @@ in
     # Wallpapers / avatar / session gif. All the configs (shell.json,
     # CAELESTIA_WALLPAPERS_DIR, fastfetch logo) hardcode ~/.config/images/*.
     "images".source = link "images";
+
+    # Notification sounds, shared across tools (currently: Claude Code hooks,
+    # see claude/notify-sound.sh).
+    "sounds".source = link "sounds";
   };
 
   # "Terminals follow the color scheme" — ported from arch-dotfiles
